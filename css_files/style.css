@@ -1,0 +1,130 @@
+/* *{
+    box-sizing: border-box;
+  } */
+  
+  /* Style the body */
+  body {
+    /* font-family: Arial,Impact, 'Arial Narrow Bold', sans-serif Helvetica, sans-serif; */
+    margin: 0;
+    
+  }
+  h4{
+    text-decoration: underline yellowgreen;
+    margin: 20px;
+    font-weight: bolder;
+  }
+  fieldset{
+    border-radius: 7px;
+    width:75%;
+  }
+  .order{
+    border:2px solid;
+    border-color:rgb(243, 121, 8);
+  }
+  .order :hover{
+    border-color: rgb(18, 189, 18);
+}
+#comment,#food_drinks,#customerDetails{
+  color:rgb(18, 189, 18);
+}
+  #resetButton,#submitButton{
+    width:150px;
+    height:50px;
+    margin:40px;
+    font-weight: bold;
+}
+#resetButton:hover{
+  background-color: red;
+} 
+#submitButton:hover{
+  background-color:rgb(18, 189, 18) ;
+}
+#resetButton:active,#submitButton:active{
+  color:rgb(243, 121, 8);
+}
+
+  
+  /* Header/logo Title */
+  .header {
+    padding: 10px;
+    text-align: center;
+    background: rgb(243, 121, 8);
+    color: black;
+    text-shadow: 3px 3px 5px yellow, 0px 0px 3px red;
+    font-size: 20px;
+  }
+  
+  /* Increase the font size of the heading */
+  .header h1 {
+    font-size: 40px;
+  }
+  .navbar{
+    font-size: 25px;
+    border: 1px solid;
+    
+    
+  }
+  .navbar a {
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    background-color: rgba(238, 238, 103, 0.918);
+  }
+  /* Left-aligned link */
+.navbar a.left {
+    float: left;
+  }
+span.order{
+    border: 1px solid;
+    border-radius: 7px;
+    padding: 5px;
+  }
+#openingHours{
+  font-size: 20px;
+  background-color: rgba(228, 228, 13, 0.884);
+  color:red;
+  border:1px solid;
+  width:250px;
+  margin:20px;
+  padding:5px;
+}
+.content{
+  font-size: 15px;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    
+    background: rgb(243, 121, 8);
+    color: black;
+    margin: 0px;
+    position: fixed;
+    bottom:0px;
+    width:100%;
+  }
+  .footer-menu{
+    background: rgb(243, 121, 8);
+    color: black;
+  }
+  span.bottom-left{
+    position: fixed;
+    bottom:5px;
+    right:0px;
+    
+  }
+  span.right{
+    text-align: right;
+  }
+  .navbar a:hover{
+    background-color: white;
+    animation: glowAnimation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes glowAnimation{
+    50%{text-shadow: 2px 2px 5px rgb(83, 190, 20);}
+  }

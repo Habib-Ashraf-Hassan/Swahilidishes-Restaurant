@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        .menu {
+          display: none;
+          }
+      </style>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css_files/style.css" type="text/css">
+</head>
+<body>
+    <div class="header">
+        
+        <h1>King Fries Restaurant</h1>
+        
+        <p>Life is dull without good food.</p>
+        
+    </div>
+
+    <div class="navbar">
+        <a href="about.html" class="left"><span>About us</span></a>
+        <a href="order.html"><span class="order">Place Order</span></a>
+        <a href="menu.html"><span>Menu</span></a>
+        <a href="home.html"><span>Home</span></a>
+    </div>
+     <!-- Menu Container -->
+<div class="w3-container" id="menu">
+    <div class="w3-content" style="max-width:700px">
+   
+      <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide" style="color:black;background-color:rgb(243, 121, 8)">THE MENU</span></h5>
+    
+      <div class="w3-row w3-center w3-card w3-padding">
+        <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
+          <div class="w3-col s6 tablink" >Eat</div>
+        </a>
+        <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+          <div class="w3-col s6 tablink" >Drink</div>
+        </a>
+      </div>
+  
+      <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+        <h5>Chapati</h5>
+        <p class="w3-text-grey">Soft fried Chapatis @ ksh30 each</p><br>
+      
+        <h5>Rice</h5>
+        <p class="w3-text-grey">Pishori white rice @ ksh100 per container</p><br>
+      
+        <h5>Pilau</h5>
+        <p class="w3-text-grey">Fried mutton Pilau with salad and cucumber and a free container of chili @ ksh120 per container</p><br>
+      
+        <h5>Fries</h5>
+        <p class="w3-text-grey">Deep fries @ ksh80 per box of fries</p><br>
+      
+        <h5>Beans</h5>
+        <p class="w3-text-grey">Heavy stewed beans mixed with some kale(sukumawiki)</p>
+      </div>
+  
+      <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+        <h5>Coffee</h5>
+        <p class="w3-text-grey">Black coffee or Milked</p><br>
+      
+        <h5>Milkshake</h5>
+        <p class="w3-text-grey">Packed in a 500ml cup; Caramel,Stawberry,Vanilla and Banana flavours available </p><br>
+      
+        <h5>Juice</h5>
+        <p class="w3-text-grey">Freshly made juice in a 500ml cup; Mango, Passion, Pineapple, Tamarind and Avocado flavours available</p><br>
+      
+        <h5>Tea</h5>
+        <p class="w3-text-grey">Hot tea, either black tea or milk tea</p><br>
+      
+        <h5>Soda</h5>
+        <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
+      </div>  
+      
+    </div>
+  </div>
+
+  <div class="footer-menu">
+    <span class="bottom-left">
+        &copy Copyright Information
+    </span>
+
+    <span class="right">
+        <i class="fa fa-phone"></i> 07416746666<br>
+        <i class="fa fa-envelope"></i> habibashrafanil434@gmail.com<br>
+        <br>
+        Follow us at:
+        <br>
+        <i class="fa fa-instagram"></i> kingfries_restaurant555<br>
+        <i class="fa fa-facebook"></i> kingFries_restaurant555
+    </span>
+
+
+</div>
+  
+  <script src="javascript_files/menu.js">
+    // // Tabbed Menu
+    // function openMenu(evt, menuName) {
+    //   var i, x, tablinks;
+    //   x = document.getElementsByClassName("menu");
+    //   for (i = 0; i < x.length; i++) {
+    //     x[i].style.display = "none";
+    //   }
+    //   tablinks = document.getElementsByClassName("tablink");
+    //   for (i = 0; i < x.length; i++) {
+    //     tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+    //   }
+    //   document.getElementById(menuName).style.display = "block";
+    //   evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+    // }
+    // document.getElementById("myLink").click();
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order food/drinks</title>
+    <link rel="stylesheet" href="css_files/style.css" type="text/css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    
+
+</head>
+<body>
+    <div class="header">
+        
+        <h1>King Fries Restaurant</h1>
+        
+        <p>Life is dull without good food.</p>
+        
+    </div>
+    <div class="navbar">
+        <a href="about.html" class="left"><span>About us</span></a>
+        <a href="order.html"><span class="order">Place Order</span></a>
+        <a href="menu.html"><span>Menu</span></a>
+        <a href="home.html"><span>Home</span></a>
+    </div>
+    <!--Form to place the Order-->
+    <br>
+    <br>
+    <br>
+    <div class="placeOrder">
+        <h4>Fill in the details below to place your order:</h4>
+        <br>
+        <br>
+        <form onsubmit="return acceptDetails()" action="action.php"  method="post" >
+            <fieldset class="order" id="order_customerDetails">
+                <legend id="customerDetails"></legend>
+                <p><label for="name">Name:</label>
+                    <input type="text" maxlength="20" id="name" name="name" pattern="[a-zA-Z ]+" required title="Name to have characters ONLY">
+                </p>
+                
+                <p><label for="phone">Phone number:</label>
+                    <input type="tel" minlength="10" maxlength="10" id="phone" name="phone" pattern="(01|07)[0-9]+" required title="Valid Kenyan phone number required">
+                </p>
+                
+                <p><label for="email">Email:</label>
+                    <input type="email"  id="email" name="email" placeholder="someone@gmail.com" required>
+                </p>
+                
+                <p><label for="location">Location:</label>
+                    <input type="text" maxlength="10" id="location" name="location" pattern="[a-zA-Z0-9]+" required title="Location name to have alphanumerics ONLY">
+                </p>
+                
+                <p><label for="address">Address:</label>
+                    <input type="text" minlength="4" maxlength="5"  id="address" name="address" pattern="[0-9]+" required title="Address to have ogots ONLY">
+                </p>
+
+            </fieldset>
+            <br>
+            <br>
+                <fieldset class="order" id="order_food_drinks">
+                    <legend id="food_drinks"></legend>
+                    <p><label for="food">Select Food:</label>
+                        <select id="food" name="food">
+                            <option value="0" selected>None</option>
+                            <option value="30">Chapati</option>
+                            <option value="100">Rice</option>
+                            <option value="170">Chapati(4) & Beans</option>
+                            <option value="150">Rice & Beans</option>
+                            <option value="120">Pilau</option>
+                            <option value="80">Fries</option>
+                            <option value="50">Beans</option>
+        
+                        </select>
+                        &nbsp;
+                        &nbsp;
+                        <label for="amountOfFood">Enter Quantity of Food selected</label>
+                        <input type="number" min="1" max="20" value="1" id="amountOfFood" name="amountOfFood">
+                    </p>
+                    <p>
+                        <label for="drinks">Select Drink:</label>
+                        <select id="drinks" name="drinks">
+
+                            <option value="0" selected>None</option>
+                            <option value="35">Soda</option>
+                            <option value="60">Juice</option>
+                            <option value="100">Milkshake</option>
+                            <option value="50">Tea</option>
+                            <option value="55">Coffee</option>
+        
+                        </select>
+                        &nbsp;
+                        &nbsp;
+                        <label for="amountOfDrinks">Enter Quantity of Drinks selected</label>
+                        <input type="number" min="1" max="20" value="1" id="amountOfFood" name="amountOfDrinks">
+                    </p>
+                </fieldset>
+                <br>
+                <br>
+                <fieldset class="order" id="order_comment">
+                    <legend id="comment"></legend>
+                    <br>
+                    <label for="commentSection">Enter your comment<b>(Please avoid abusive language):</b></label>
+                    <br>
+                    <br>
+                    <textarea rows="10" cols="50" wrap="hard" name="commentSection" placeholder="Enter your comment here">
+
+                    </textarea>
+                </fieldset>
+                
+                <input type="reset" id="resetButton" name="reset" value="RESET">
+                
+                <input type="submit" id="submitButton" name="submit" value="Submit Order">
+
+        </form>
+
+
+    </div>
+    <script src="javascript_files/order.js">
+
+    </script>
+</body>
+</html>

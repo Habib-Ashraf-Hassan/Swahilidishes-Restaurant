@@ -23,5 +23,5 @@ _The customer then gets a response displayed on the same window showing him the 
 ## About page
 Contains a brief description of what is KingFries restauarant, its location, contact info of the owners etc
 
-*NOTE*:_the images used in this site are not the actual images of the said restaurant, were just uploaded from the web ... this site built only for educational purposes ie It may NOT be an actual restaurant site existing_
+*NOTE:* _the images used in this site are not the actual images of the said restaurant, were just uploaded from the web ... this site built only for educational purposes ie It may NOT be an actual restaurant site existing_
 

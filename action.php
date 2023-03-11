@@ -32,78 +32,37 @@
         "100"=>"Milkshake", "50"=>"Tea","55"=>"Coffee");
         $selected_drink = $drinkOptions["$selected_drinkPrice"];
 
+        $amount_food = $_POST["amountOfFood"];
+        $amount_drinks = $_POST["amountOfDrinks"];
+        if(!empty($_POST["food"])){
+            $food = $_POST["food"];
+        }
+        else{
+            $food = 0;
+        }
+        if(!empty($_POST["drinks"])){
+            $drinks = $_POST["drinks"];
+        }
+        else{
+            $drinks = 0;
+        }
+        $total = ($food * $amount_food) + ($drinks * $amount_drinks);
+
+
+
         echo "Name: $customer"."<br>";
         echo "Phone number: $phoneNumber"."<br>";
         echo "Email: $email"."<br>";
-        echo "Living at: $location"." Address $addr"."<br>";
+        echo "Living at: $location"." Address $addr"."<br>"."<br>";
+        echo "<b>Food and Drinks Chosen:</b>";
 
-        echo "Food: $selected_food"." ";
-        echo "Drink: $selected_drink";
-
-    ?>
-    </div>
-    <div id="container2" >
-        <span style="font-weight:bolder">Food and Drinks Chosen:</span><br>
-
-    <?php
-        $selected_FoodPrice = $_POST["food"];
-        $foodOptions = array("0"=>"None", "30"=>"Chapati", "100"=>"Rice",
-        "170"=>"Chapati(4) & Beans", "150"=>"Rice & Beans","120"=>"Pilau",
-        "80"=>"Fries", "50"=>"Beans");
-        $selected_food = $foodOptions["$selected_FoodPrice"];
-
-        $selected_drinkPrice = $_POST["drinks"];
-        $drinkOptions = array("0"=>"None", "35"=>"Soda", "60"=>"Juice",
-        "100"=>"Milkshake", "50"=>"Tea","55"=>"Coffee");
-        $selected_drink = $drinkOptions["$selected_drinkPrice"];
-
-        $amount_food = $_POST["amountOfFood"];
-        $amount_drinks = $_POST["amountOfDrinks"];
-        if(!empty($_POST["food"])){
-            $food = $_POST["food"];
-        }
-        else{
-            $food = 0;
-        }
-        if(!empty($_POST["drinks"])){
-            $drinks = $_POST["drinks"];
-        }
-        else{
-            $drinks = 0;
-        }
-        $total = ($food * $amount_food) + ($drinks * $amount_drinks);
-
-        echo "Food: $selected_food"." ";
-        echo "Drink: $selected_drink";
-
-        echo "<div> Total Amount: &nbsp";
+        echo "<div>Food: $selected_food"." ";
+        echo "Drink: $selected_drink"."<br>"."<br>";
+        echo "<b>Total Amount: &nbsp</b>"."<br>";
         echo "ksh $total"."</div>";
 
-
-
-
     ?>
     </div>
-    <div class="container3" style="color:green">
-        <!-- Total Amount: &nbsp; -->
-    <?php
-        $amount_food = $_POST["amountOfFood"];
-        $amount_drinks = $_POST["amountOfDrinks"];
-        if(!empty($_POST["food"])){
-            $food = $_POST["food"];
-        }
-        else{
-            $food = 0;
-        }
-        if(!empty($_POST["drinks"])){
-            $drinks = $_POST["drinks"];
-        }
-        else{
-            $drinks = 0;
-        }
-        $total = ($food * $amount_food) + ($drinks * $amount_drinks);
-        echo "ksh $total";
-    ?>
-    </div>
+    
 </body>
 </html>

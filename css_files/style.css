@@ -24,7 +24,7 @@
   .order :hover{
     border-color: rgb(18, 189, 18);
 }
-#comment,#food_drinks,#customerDetails{
+#location_description,#food_drinks,#customerDetails{
   color:rgb(18, 189, 18);
 }
   #resetButton,#submitButton{

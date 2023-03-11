@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="css_files/style.css" type="text/css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <script>
+        document.getElementById("loc_desc").onclick = function(){
+        document.getElementById("location_description").innerHTML="Describe your location:";
+    }
+
+    </script>
     
 
 </head>
@@ -98,15 +104,16 @@
                 </fieldset>
                 <br>
                 <br>
-                <fieldset class="order" id="order_comment">
-                    <legend id="comment"></legend>
+                <fieldset class="order" id="loc_desc">
+                    <legend id="location_description" style="color:rgb(18, 189, 18)"></legend>
                     <br>
-                    <label for="commentSection">Enter your comment<b>(Please avoid abusive language):</b></label>
+                    <label for="loc_desc">Enter your your location's description<b>(Be descriptive and brief as you can can use either English or Swahili):</b></label>
                     <br>
                     <br>
-                    <textarea rows="10" cols="50" wrap="hard" name="commentSection" placeholder="Enter your comment here">
+                    <!-- <textarea rows="10" cols="50" wrap="hard" id="loc_description" name="location_descr" placeholder="Enter your description here" required>
 
-                    </textarea>
+                    </textarea> -->
+                    <input type="text" maxlength="200" id="location_descr" name="location_descr" required title="Enter brief description of your location">
                 </fieldset>
                 
                 <input type="reset" id="resetButton" name="reset" value="RESET">

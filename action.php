@@ -11,7 +11,7 @@
     <title>Response of submission</title>
 </head>
 <body>
-    <div id="container1" >
+    <div id="container1" style="text-align:center" >
         <span style="font-weight:bolder" >Order successfully submitted for <i class="fa fa-ok" ></i>:</span>
             <br>
     <?php
@@ -47,6 +47,7 @@
             $drinks = 0;
         }
         $total = ($food * $amount_food) + ($drinks * $amount_drinks);
+        $loc_description = $_POST["location_descr"];
 
 
 
@@ -60,6 +61,9 @@
         echo "Drink: $selected_drink"."<br>"."<br>";
         echo "<b>Total Amount: &nbsp</b>"."<br>";
         echo "ksh $total"."</div>";
+        echo "<b>Description of location:</b>"."<br>";
+        echo "--->> $loc_description";
+
 
     ?>
     </div>

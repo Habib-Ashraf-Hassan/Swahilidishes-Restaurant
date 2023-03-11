@@ -27,7 +27,7 @@
         $phoneNumber = $_POST["phone"];
         $email = $_POST["email"];
         $location = $_POST["location"];
-        $addr = $_POST["address"];
+        $subLocation = $_POST["subLocation"];
 
         $selected_FoodPrice = $_POST["food"];
         $foodOptions = array("0"=>"None", "30"=>"Chapati", "100"=>"Rice",
@@ -62,7 +62,7 @@
         echo "Name: $customer"."<br>";
         echo "Phone number: $phoneNumber"."<br>";
         echo "Email: $email"."<br>";
-        echo "Living at: $location"." Address $addr"."<br>"."<br>";
+        echo "Living at:<u>$location</u>"."  Sub-location/Estate: <u>$subLocation</u>"."<br>"."<br>";
         echo "<b>Food and Drinks Chosen:</b>";
 
         echo "<div>Food: $selected_food"." ";

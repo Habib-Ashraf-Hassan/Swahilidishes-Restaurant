@@ -11,6 +11,14 @@
     <title>Response of submission</title>
 </head>
 <body>
+    <div class="header">
+        
+        <h1>King Fries Restaurant</h1>
+        
+        <p>Response Page</p>
+        
+    </div>
+
     <div id="container1" style="text-align:center" >
         <span style="font-weight:bolder" >Order successfully submitted for <i class="fa fa-ok" ></i>:</span>
             <br>

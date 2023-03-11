@@ -90,18 +90,7 @@ include_once("includes/db_inc.php");
 
 
 
-        // echo "Name: $customer"."<br>";
-        // echo "Phone number: $phoneNumber"."<br>";
-        // echo "Email: $email"."<br>";
-        // echo "Living at:<u>$loc</u>"."  Sub-location/Estate: <u>$subLocation</u>"."<br>"."<br>";
-        // echo "<b>Food and Drinks Chosen:</b>";
-
-        // echo "<div>Food: $selected_food"." ";
-        // echo "Drink: $selected_drink"."<br>"."<br>";
-        // echo "<b>Total Amount: &nbsp</b>"."<br>";
-        // echo "ksh $total"."</div>";
-        // echo "<b>Description of location:</b>"."<br>";
-        // echo "--->> $loc_description";
+        
 
 
     ?>

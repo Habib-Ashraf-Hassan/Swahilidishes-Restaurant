@@ -1,3 +1,6 @@
+<?php
+include_once("includes/db_inc.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,10 +26,16 @@
         <span style="font-weight:bolder" >Order successfully submitted for <i class="fa fa-ok" ></i>:</span>
             <br>
     <?php
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        // Retrieve form data
         $customer = $_POST["name"];
         $phoneNumber = $_POST["phone"];
         $email = $_POST["email"];
-        $location = $_POST["location"];
+        $loc = $_POST["location"];
         $subLocation = $_POST["subLocation"];
 
         $selected_FoodPrice = $_POST["food"];
@@ -57,20 +66,42 @@
         $total = ($food * $amount_food) + ($drinks * $amount_drinks);
         $loc_description = $_POST["location_descr"];
 
+        // Insert form data into database
+        $sql = "INSERT INTO onlineorder (customer_name, phone_number, email, location, sublocation, food, food_quantity, drink, drink_quantity, total, location_description ) VALUES('$customer', '$phoneNumber', '$email', '$loc', '$subLocation', '$selected_food', '$amount_food', '$selected_drink', '$amount_drinks', '$total', '$loc_description');";
+        if (mysqli_query($conn, $sql)) {
+            echo "<h3>New record created successfully</h3>";
+            echo "Name: $customer"."<br>";
+            echo "Phone number: $phoneNumber"."<br>";
+            echo "Email: $email"."<br>";
+            echo "Living at:<u>$loc</u>"."  Sub-location/Estate: <u>$subLocation</u>"."<br>"."<br>";
+            echo "<b>Food and Drinks Chosen:</b>";
+
+            echo "<div>Food: $selected_food"." ";
+            echo "Drink: $selected_drink"."<br>"."<br>";
+            echo "<b>Total Amount: &nbsp</b>"."<br>";
+            echo "ksh $total"."</div>";
+            echo "<b>Description of location:</b>"."<br>";
+            echo "--->> $loc_description";
+          } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+          }
+          
+          mysqli_close($conn);
 
 
-        echo "Name: $customer"."<br>";
-        echo "Phone number: $phoneNumber"."<br>";
-        echo "Email: $email"."<br>";
-        echo "Living at:<u>$location</u>"."  Sub-location/Estate: <u>$subLocation</u>"."<br>"."<br>";
-        echo "<b>Food and Drinks Chosen:</b>";
 
-        echo "<div>Food: $selected_food"." ";
-        echo "Drink: $selected_drink"."<br>"."<br>";
-        echo "<b>Total Amount: &nbsp</b>"."<br>";
-        echo "ksh $total"."</div>";
-        echo "<b>Description of location:</b>"."<br>";
-        echo "--->> $loc_description";
+        // echo "Name: $customer"."<br>";
+        // echo "Phone number: $phoneNumber"."<br>";
+        // echo "Email: $email"."<br>";
+        // echo "Living at:<u>$loc</u>"."  Sub-location/Estate: <u>$subLocation</u>"."<br>"."<br>";
+        // echo "<b>Food and Drinks Chosen:</b>";
+
+        // echo "<div>Food: $selected_food"." ";
+        // echo "Drink: $selected_drink"."<br>"."<br>";
+        // echo "<b>Total Amount: &nbsp</b>"."<br>";
+        // echo "ksh $total"."</div>";
+        // echo "<b>Description of location:</b>"."<br>";
+        // echo "--->> $loc_description";
 
 
     ?>

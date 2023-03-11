@@ -1,3 +1,6 @@
+<?php
+include_once("includes/db_inc.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,26 +14,30 @@
     <title>Response of submission</title>
 </head>
 <body>
-    <div id="container1" >
+    <div class="header">
+        
+        <h1>King Fries Restaurant</h1>
+        
+        <p>Response Page</p>
+        
+    </div>
+
+    <div id="container1" style="text-align:center" >
         <span style="font-weight:bolder" >Order successfully submitted for <i class="fa fa-ok" ></i>:</span>
             <br>
     <?php
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        // Retrieve form data
         $customer = $_POST["name"];
         $phoneNumber = $_POST["phone"];
         $email = $_POST["email"];
-        $location = $_POST["location"];
-        $addr = $_POST["address"];
-        echo "Name: $customer";
-        echo "Phone number: $phoneNumber";
-        echo "Email: $email";
-        echo "Living at: $location"." Address $addr";
+        $loc = $_POST["location"];
+        $subLocation = $_POST["subLocation"];
 
-    ?>
-    </div>
-    <div id="container2" >
-        <span style="font-weight:bolder">Food and Drinks Chosen:</span><br>
-
-    <?php
         $selected_FoodPrice = $_POST["food"];
         $foodOptions = array("0"=>"None", "30"=>"Chapati", "100"=>"Rice",
         "170"=>"Chapati(4) & Beans", "150"=>"Rice & Beans","120"=>"Pilau",
@@ -42,15 +49,6 @@
         "100"=>"Milkshake", "50"=>"Tea","55"=>"Coffee");
         $selected_drink = $drinkOptions["$selected_drinkPrice"];
 
-        echo "Food: $selected_food";
-        echo "Drink: $selected_drink";
-
-
-    ?>
-    </div>
-    <div class="container3" style="color:green">
-        Total Amount: &nbsp;
-    <?php
         $amount_food = $_POST["amountOfFood"];
         $amount_drinks = $_POST["amountOfDrinks"];
         if(!empty($_POST["food"])){
@@ -66,8 +64,37 @@
             $drinks = 0;
         }
         $total = ($food * $amount_food) + ($drinks * $amount_drinks);
-        echo "ksh $total";
+        $loc_description = $_POST["location_descr"];
+
+        // Insert form data into database
+        $sql = "INSERT INTO onlineorder (customer_name, phone_number, email, location, sublocation, food, food_quantity, drink, drink_quantity, total, location_description ) VALUES('$customer', '$phoneNumber', '$email', '$loc', '$subLocation', '$selected_food', '$amount_food', '$selected_drink', '$amount_drinks', '$total', '$loc_description');";
+        if (mysqli_query($conn, $sql)) {
+            echo "<h3>New record created successfully</h3>";
+            echo "Name: $customer"."<br>";
+            echo "Phone number: $phoneNumber"."<br>";
+            echo "Email: $email"."<br>";
+            echo "Living at:<u>$loc</u>"."  Sub-location/Estate: <u>$subLocation</u>"."<br>"."<br>";
+            echo "<b>Food and Drinks Chosen:</b>";
+
+            echo "<div>Food: $selected_food"." ";
+            echo "Drink: $selected_drink"."<br>"."<br>";
+            echo "<b>Total Amount: &nbsp</b>"."<br>";
+            echo "ksh $total"."</div>";
+            echo "<b>Description of location:</b>"."<br>";
+            echo "--->> $loc_description";
+          } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+          }
+          
+          mysqli_close($conn);
+
+
+
+        
+
+
     ?>
     </div>
+    
 </body>
 </html>

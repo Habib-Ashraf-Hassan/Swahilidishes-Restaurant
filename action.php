@@ -20,10 +20,25 @@
         $email = $_POST["email"];
         $location = $_POST["location"];
         $addr = $_POST["address"];
-        echo "Name: $customer";
-        echo "Phone number: $phoneNumber";
-        echo "Email: $email";
-        echo "Living at: $location"." Address $addr";
+
+        $selected_FoodPrice = $_POST["food"];
+        $foodOptions = array("0"=>"None", "30"=>"Chapati", "100"=>"Rice",
+        "170"=>"Chapati(4) & Beans", "150"=>"Rice & Beans","120"=>"Pilau",
+        "80"=>"Fries", "50"=>"Beans");
+        $selected_food = $foodOptions["$selected_FoodPrice"];
+
+        $selected_drinkPrice = $_POST["drinks"];
+        $drinkOptions = array("0"=>"None", "35"=>"Soda", "60"=>"Juice",
+        "100"=>"Milkshake", "50"=>"Tea","55"=>"Coffee");
+        $selected_drink = $drinkOptions["$selected_drinkPrice"];
+
+        echo "Name: $customer"."<br>";
+        echo "Phone number: $phoneNumber"."<br>";
+        echo "Email: $email"."<br>";
+        echo "Living at: $location"." Address $addr"."<br>";
+
+        echo "Food: $selected_food"." ";
+        echo "Drink: $selected_drink";
 
     ?>
     </div>
@@ -42,14 +57,35 @@
         "100"=>"Milkshake", "50"=>"Tea","55"=>"Coffee");
         $selected_drink = $drinkOptions["$selected_drinkPrice"];
 
-        echo "Food: $selected_food";
+        $amount_food = $_POST["amountOfFood"];
+        $amount_drinks = $_POST["amountOfDrinks"];
+        if(!empty($_POST["food"])){
+            $food = $_POST["food"];
+        }
+        else{
+            $food = 0;
+        }
+        if(!empty($_POST["drinks"])){
+            $drinks = $_POST["drinks"];
+        }
+        else{
+            $drinks = 0;
+        }
+        $total = ($food * $amount_food) + ($drinks * $amount_drinks);
+
+        echo "Food: $selected_food"." ";
         echo "Drink: $selected_drink";
+
+        echo "<div> Total Amount: &nbsp";
+        echo "ksh $total"."</div>";
+
+
 
 
     ?>
     </div>
     <div class="container3" style="color:green">
-        Total Amount: &nbsp;
+        <!-- Total Amount: &nbsp; -->
     <?php
         $amount_food = $_POST["amountOfFood"];
         $amount_drinks = $_POST["amountOfDrinks"];

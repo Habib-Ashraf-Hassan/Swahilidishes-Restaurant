@@ -67,7 +67,7 @@ include_once("includes/db_inc.php");
         $loc_description = $_POST["location_descr"];
 
         // Insert form data into database
-        $sql = "INSERT INTO onlineorder (customer_name, phone_number, email, location, sublocation, food, food_quantity, drink, drink_quantity, total, location_description ) VALUES('$customer', '$phoneNumber', '$email', '$loc', '$subLocation', '$selected_food', '$amount_food', '$selected_drink', '$amount_drinks', '$total', '$loc_description');";
+        $sql = "INSERT INTO onlineorder (customer_name, phone_number, email, location, sublocation, food, drink,total, location_description ) VALUES('$customer', '$phoneNumber', '$email', '$loc', '$subLocation', '$selected_food', '$selected_drink', '$total', '$loc_description');";
         if (mysqli_query($conn, $sql)) {
             echo "<h3>New record created successfully</h3>";
             echo "Name: $customer"."<br>";

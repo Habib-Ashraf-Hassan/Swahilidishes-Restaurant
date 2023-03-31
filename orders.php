@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 }
 
 // Retrieve the online orders from the database
-$sql = "SELECT order_id, customer_name, phone_number, email, location FROM onlineorder;";
+$sql = "SELECT order_id, customer_name, phone_number, email, location, sublocation, food, drink, total, time_of_order, location_description FROM onlineorder;";
 $result = $conn->query($sql);
 
 // // Display the orders in a table
@@ -80,7 +80,8 @@ $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         echo "<div style=\"font-size: 20px;\">";
         echo "<table>";
-        echo "<tr><th>Order ID</th><th>Client Name</th><th>Phone Number</th><th>Email</th><th>Location</th></tr>";
+        echo "<tr><th>Order ID</th><th>Customer Name</th><th>Phone Number</th><th>Email</th><th>Location</th><th>Sub location</th>
+        <th>Food</th><th>Drink</th><th>Total</th><th>Time</th><th>Location description</th></tr>";
         while($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td>".$row["order_id"]."</td>";
@@ -88,6 +89,12 @@ $result = $conn->query($sql);
             echo "<td>".$row["phone_number"]."</td>";
             echo "<td>".$row["email"]."</td>";
             echo "<td>".$row["location"]."</td>";
+            echo "<td>".$row["sublocation"]."</td>";
+            echo "<td>".$row["food"]."</td>";
+            echo "<td>".$row["drink"]."</td>";
+            echo "<td>".$row["total"]."</td>";
+            echo "<td>".$row["time_of_order"]."</td>";
+            echo "<td>".$row["location_description"]."</td>";
             echo "</tr>";
         }
         echo "</table>";

@@ -11,13 +11,40 @@
     <script>
         document.getElementById("loc_desc").onclick = function(){
         document.getElementById("location_description").innerHTML="Describe your location:";
+        
     }
-
+    
     </script>
+    
+    <style>
+        .food_amount, .drink_amount{
+            width: 70px;
+        }
+        .food_borders, .drink_borders{
+            border: 1px;
+            border-style: dashed;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .food_borders:hover{
+            background-color: rgba(238, 238, 103, 0.918);
+        }
+        .drink_borders:hover{
+            background-color: aquamarine;
+        }
+        hr{
+            border: 1px solid rgba(169, 169, 169, 0.616);
+        }
+    </style>
     
 
 </head>
 <body>
+    
     <div class="header">
         
         <h1>Swahili Dishes Restaurant</h1>
@@ -39,7 +66,7 @@
         <h4>Fill in the details below to place your order:</h4>
         <br>
         <br>
-        <form onsubmit="return acceptDetails()" action="action.php"  method="post" >
+        <form id = "myForm"  action="action.php"  method="post" >
             <fieldset class="order" id="order_customerDetails">
                 <legend id="customerDetails"></legend>
                 <p><label for="name">Name:</label>
@@ -67,39 +94,82 @@
             <br>
                 <fieldset class="order" id="order_food_drinks">
                     <legend id="food_drinks"></legend>
-                    <p><label for="food">Select Food:</label>
-                        <select id="food" name="food">
-                            <option value="0" selected>None</option>
-                            <option value="30">Chapati</option>
-                            <option value="100">Rice</option>
-                            <option value="170">Chapati(4) & Beans</option>
-                            <option value="150">Rice & Beans</option>
-                            <option value="120">Pilau</option>
-                            <option value="80">Fries</option>
-                            <option value="50">Beans</option>
-        
-                        </select>
-                        &nbsp;
-                        &nbsp;
-                        <label for="amountOfFood">Enter Quantity of Food selected</label>
-                        <input type="number" min="1" max="20" value="1" id="amountOfFood" name="amountOfFood">
+                    <p>Select food:
+                        <span class="food_borders">
+                            <label for="chapati">Chapati:</label>
+                            <input type="checkbox" name="chapati" id="chapati" value="Chapati">
+                            <input type="number" min="1" max="20" value="1" class="food_amount" name="chapati_amount">
+                        </span>
+
+                        <span class="food_borders">
+                            <label for="beans">Beans:</label>
+                            <input type="checkbox" name="beans" id="beans" value="beans">
+                            <input type="number" min="1" max="20" value="1" class="food_amount" name="beans_amount">
+                        </span>
+
+                        <span class="food_borders">
+                            <label for="chips">Chips:</label>
+                            <input type="checkbox" name="chips" id="chips" value="chips">
+                            <input type="number" min="1" max="20" value="1" class="food_amount" name="chips_amount">
+                        </span>
+
+                        <span class="food_borders">
+                            <label for="rice">Rice:</label>
+                            <input type="checkbox" name="rice" id="rice" value="rice">
+                            <input type="number" min="1" max="20" value="1" class="food_amount" name="rice_amount">
+                        </span>
+                        
+                        <span class="food_borders">
+                            <label for="pilau">Pilau:</label>
+                            <input type="checkbox" name="pilau" id="pilau" value="pilau">
+                            <input type="number" min="1" max="20" value="1" class="food_amount" name="pilau_amount">
+                        </span>
+                        <hr>
+                        
                     </p>
                     <p>
-                        <label for="drinks">Select Drink:</label>
-                        <select id="drinks" name="drinks">
+                        Select Drinks:
+                        <span class="drink_borders">
+                            <label for="pepsi">Pepsi:</label>
+                            <input type="checkbox" name="pepsi" id="pepsi" value="pepsi">
+                            <input type="number" min="1" max="20" value="1" class="drink_amount" name="pepsi_amount">
+                        </span>
 
-                            <option value="0" selected>None</option>
-                            <option value="35">Soda</option>
-                            <option value="60">Juice</option>
-                            <option value="100">Milkshake</option>
-                            <option value="50">Tea</option>
-                            <option value="55">Coffee</option>
-        
-                        </select>
+                        <span class="drink_borders">
+                            <label for="mountainDew">Mountain Dew:</label>
+                            <input type="checkbox" name="mountaindew" id="mountainDew" value="mountainDew">
+                            <input type="number" min="1" max="20" value="1" class="drink_amount" name="mountainDew_amount">
+                        </span>
+
+                        <span class="drink_borders">
+                            <label for="milkshake">Milkshake:</label>
+                            <input type="checkbox" name="milkshake" id="milkshake" value="milkshake">
+                            <input type="number" min="1" max="20" value="1" class="drink_amount" name="milkshake_amount">
+                        </span>
+
+                        <span class="drink_borders">
+                            <label for="mango">Mango Juice:</label>
+                            <input type="checkbox" name="mangojuice" id="mango" value="mangojuice">
+                            <input type="number" min="1" max="20" value="1" class="drink_amount" name="mango_amount">
+                        </span>
+                        <br>
+                        <br>
+
                         &nbsp;
                         &nbsp;
-                        <label for="amountOfDrinks">Enter Quantity of Drinks selected</label>
-                        <input type="number" min="1" max="20" value="1" id="amountOfFood" name="amountOfDrinks">
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        
+                        <span class="drink_borders">
+                            <label for="pineapple">Pineapple Juice:</label>
+                            <input type="checkbox" name="pineapplejuice" id="pineapple" value="pineapplejuice">
+                            <input type="number" min="1" max="20" value="1" class="drink_amount" name="pineapple_amount">
+                        </span>
+                        
+                        
                     </p>
                 </fieldset>
                 <br>
@@ -118,13 +188,13 @@
                 
                 <input type="reset" id="resetButton" name="reset" value="RESET">
                 
-                <input type="submit" id="submitButton" name="submit" value="Submit Order">
+                <input type="submit" id="submitButton" name="submit" value="Submit Order" onclick="validateForm()">
 
         </form>
 
 
     </div>
-    <script src="javascript_files/order.js">
+    <script type="text/javascript" src="javascript_files/order.js">
 
     </script>
 </body>

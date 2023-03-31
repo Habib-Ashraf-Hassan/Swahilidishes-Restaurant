@@ -38,36 +38,36 @@ include_once("includes/db_inc.php");
         $loc = $_POST["location"];
         $subLocation = $_POST["subLocation"];
 
-        $selected_FoodPrice = $_POST["food"];
-        $foodOptions = array("0"=>"None", "30"=>"Chapati", "100"=>"Rice",
-        "170"=>"Chapati(4) & Beans", "150"=>"Rice & Beans","120"=>"Pilau",
-        "80"=>"Fries", "50"=>"Beans");
-        $selected_food = $foodOptions["$selected_FoodPrice"];
+        // $selected_FoodPrice = $_POST["food"];
+        // $foodOptions = array("0"=>"None", "30"=>"Chapati", "100"=>"Rice",
+        // "170"=>"Chapati(4) & Beans", "150"=>"Rice & Beans","120"=>"Pilau",
+        // "80"=>"Fries", "50"=>"Beans");
+        // $selected_food = $foodOptions["$selected_FoodPrice"];
 
-        $selected_drinkPrice = $_POST["drinks"];
-        $drinkOptions = array("0"=>"None", "35"=>"Soda", "60"=>"Juice",
-        "100"=>"Milkshake", "50"=>"Tea","55"=>"Coffee");
-        $selected_drink = $drinkOptions["$selected_drinkPrice"];
+        // $selected_drinkPrice = $_POST["drinks"];
+        // $drinkOptions = array("0"=>"None", "35"=>"Soda", "60"=>"Juice",
+        // "100"=>"Milkshake", "50"=>"Tea","55"=>"Coffee");
+        // $selected_drink = $drinkOptions["$selected_drinkPrice"];
 
-        $amount_food = $_POST["amountOfFood"];
-        $amount_drinks = $_POST["amountOfDrinks"];
-        if(!empty($_POST["food"])){
-            $food = $_POST["food"];
-        }
-        else{
-            $food = 0;
-        }
-        if(!empty($_POST["drinks"])){
-            $drinks = $_POST["drinks"];
-        }
-        else{
-            $drinks = 0;
-        }
-        $total = ($food * $amount_food) + ($drinks * $amount_drinks);
+        // $amount_food = $_POST["amountOfFood"];
+        // $amount_drinks = $_POST["amountOfDrinks"];
+        // if(!empty($_POST["food"])){
+        //     $food = $_POST["food"];
+        // }
+        // else{
+        //     $food = 0;
+        // }
+        // if(!empty($_POST["drinks"])){
+        //     $drinks = $_POST["drinks"];
+        // }
+        // else{
+        //     $drinks = 0;
+        // }
+        // $total = ($food * $amount_food) + ($drinks * $amount_drinks);
         $loc_description = $_POST["location_descr"];
 
         // Insert form data into database
-        $sql = "INSERT INTO onlineorder (customer_name, phone_number, email, location, sublocation, food, drink,total, location_description ) VALUES('$customer', '$phoneNumber', '$email', '$loc', '$subLocation', '$selected_food', '$selected_drink', '$total', '$loc_description');";
+        $sql = "INSERT INTO onlineorder (customer_name, phone_number, email, location, sublocation, location_description ) VALUES('$customer', '$phoneNumber', '$email', '$loc', '$subLocation','$loc_description');";
         if (mysqli_query($conn, $sql)) {
             echo "<h3>New record created successfully</h3>";
             echo "Name: $customer"."<br>";
@@ -76,10 +76,10 @@ include_once("includes/db_inc.php");
             echo "Living at:<u>$loc</u>"."  Sub-location/Estate: <u>$subLocation</u>"."<br>"."<br>";
             echo "<b>Food and Drinks Chosen:</b>";
 
-            echo "<div>Food: $selected_food"." ";
-            echo "Drink: $selected_drink"."<br>"."<br>";
-            echo "<b>Total Amount: &nbsp</b>"."<br>";
-            echo "ksh $total"."</div>";
+            // echo "<div>Food: $selected_food"." ";
+            // echo "Drink: $selected_drink"."<br>"."<br>";
+            // echo "<b>Total Amount: &nbsp</b>"."<br>";
+            // echo "ksh $total"."</div>";
             echo "<b>Description of location:</b>"."<br>";
             echo "--->> $loc_description";
           } else {

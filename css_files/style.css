@@ -24,6 +24,9 @@
   .order :hover{
     border-color: rgb(18, 189, 18);
 }
+.food_amount{
+  width:70px;
+}
 #location_description,#food_drinks,#customerDetails{
   color:rgb(18, 189, 18);
 }

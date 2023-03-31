@@ -44,7 +44,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 <body>
     <div class="header">
         
-        <h1>King Fries Restaurant</h1>
+        <h1>Swahili Dishes Restaurant</h1>
         
         <p>Admin Log in Page</p>
         

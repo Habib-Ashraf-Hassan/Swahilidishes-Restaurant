@@ -68,7 +68,7 @@ $result = $conn->query($sql);
 <body>
     <div class="header">
                 
-        <h1>King Fries Restaurant</h1>
+        <h1>Swahili Dishes Restaurant</h1>
                 
         <p>Customers' Order details</p>
                 

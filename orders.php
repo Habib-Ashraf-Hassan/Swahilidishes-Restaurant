@@ -24,25 +24,7 @@ if ($conn->connect_error) {
 $sql = "SELECT order_id, customer_name, phone_number, email, location, sublocation, food, drink, total, time_of_order, location_description FROM onlineorder ORDER BY order_id DESC;";
 $result = $conn->query($sql);
 
-// // Display the orders in a table
-// if ($result->num_rows > 0) {
-//     echo "<table>";
-//     echo "<tr><th>Order ID</th><th>Client Name</th><th>Phone Number</th><th>Email</th><th>Location</th></tr>";
-//     while($row = $result->fetch_assoc()) {
-//         echo "<tr>";
-//         echo "<td>".$row["order_id"]."</td>";
-//         echo "<td>".$row["customer_name"]."</td>";
-//         echo "<td>".$row["phone_number"]."</td>";
-//         echo "<td>".$row["email"]."</td>";
-//         echo "<td>".$row["location"]."</td>";
-//         echo "</tr>";
-//     }
-//     echo "</table>";
-// } else {
-//     echo "No online orders found.";
-// }
 
-// $conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">

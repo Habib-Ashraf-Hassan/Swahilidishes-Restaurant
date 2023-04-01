@@ -29,12 +29,16 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Swahili Dishes Restaurant">
+    <meta name="keywords" content="Swahili dishes, Mombasa, local restaurant, admin">
+    <meta name="author" content="Ashraf Mohammed Hassan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css_files/style.css" type="text/css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Adminlogin</title>
+    <title>Admin login</title>
     <style>
         #login_button:hover{
             background-color: rgb(18, 189, 18);

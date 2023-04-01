@@ -37,37 +37,85 @@ include_once("includes/db_inc.php");
         $email = $_POST["email"];
         $loc = $_POST["location"];
         $subLocation = $_POST["subLocation"];
-
-        $selected_FoodPrice = $_POST["food"];
-        $foodOptions = array("0"=>"None", "30"=>"Chapati", "100"=>"Rice",
-        "170"=>"Chapati(4) & Beans", "150"=>"Rice & Beans","120"=>"Pilau",
-        "80"=>"Fries", "50"=>"Beans");
-        $selected_food = $foodOptions["$selected_FoodPrice"];
-
-        $selected_drinkPrice = $_POST["drinks"];
-        $drinkOptions = array("0"=>"None", "35"=>"Soda", "60"=>"Juice",
-        "100"=>"Milkshake", "50"=>"Tea","55"=>"Coffee");
-        $selected_drink = $drinkOptions["$selected_drinkPrice"];
-
-        $amount_food = $_POST["amountOfFood"];
-        $amount_drinks = $_POST["amountOfDrinks"];
-        if(!empty($_POST["food"])){
-            $food = $_POST["food"];
-        }
-        else{
-            $food = 0;
-        }
-        if(!empty($_POST["drinks"])){
-            $drinks = $_POST["drinks"];
-        }
-        else{
-            $drinks = 0;
-        }
-        $total = ($food * $amount_food) + ($drinks * $amount_drinks);
         $loc_description = $_POST["location_descr"];
 
+        //Foods:
+        $chapati = " ";
+        $chapati_price = 0;
+        $beans = "";
+        $beans_price = 0;
+        $chips = "";
+        $chips_price = 0;
+        $rice = "";
+        $rice_price = 0;
+        $pilau = "";
+        $pilau_price = 0;
+
+        //Drinks:
+        $pepsi = "";
+        $pepsi_price = 0;
+        $mdew = "";
+        $mdew_price = 0;
+        $milk = "";
+        $milk_price = 0;
+        $mango = "";
+        $mango_price = 0;
+        $pineapple = "";
+        $pineapple_price = 0;
+
+        //Checking if the food are checked or not:
+        if(isset($_POST["chapati"])){
+            $chapati = $_POST["chapati"]."(".$_POST["chapati_amount"].")";
+            $chapati_price = 30 * $_POST["chapati_amount"];
+    
+        }
+        if(isset($_POST["beans"])){
+            $beans = $_POST["beans"]."(".$_POST["beans_amount"].")";
+            $beans_price = 60 * $_POST["beans_amount"];
+        }
+        if(isset($_POST["chips"])){
+            $chips = $_POST["chips"]."(".$_POST["chips_amount"].")";
+            $chips_price = 250 * $_POST["chips_amount"];
+        }
+        if(isset($_POST["rice"])){
+            $rice = $_POST["rice"]."(".$_POST["rice_amount"].")";
+            $rice_price = 100 * $_POST["rice_amount"];
+        }
+        if(isset($_POST["pilau"])){
+            $pilau = $_POST["pilau"]."(".$_POST["pilau_amount"].")";
+            $pilau_price = 120 * $_POST["pilau_amount"];
+        }
+
+        //Checking if drink was checked or not:
+        if(isset($_POST["pepsi"])){
+            $pepsi = $_POST["pepsi"]."(".$_POST["pepsi_amount"].")";
+            $pepsi_price = 80 * $_POST["pepsi_amount"];
+        }
+        if(isset($_POST["mountaindew"])){
+            $mdew = $_POST["mountaindew"]."(".$_POST["mountainDew_amount"].")";
+            $mdew_price = 80 * $_POST["mountainDew_amount"];
+        }
+        if(isset($_POST["milkshake"])){
+            $milk = $_POST["milkshake"]."(".$_POST["milkshake_amount"].")";
+            $milk_price = 100 * $_POST["milkshake_amount"];
+        }
+        if(isset($_POST["mangojuice"])){
+            $mango = $_POST["mangojuice"]."(".$_POST["mango_amount"].")";
+            $mango_price = 80 * $_POST["mango_amount"];
+        }
+        if(isset($_POST["pineapplejuice"])){
+            $pineapple = $_POST["pineapplejuice"]."(".$_POST["pineapple_amount"].")";
+            $pineapple_price = 60 * $_POST["pineapple_amount"];
+        }
+        
+        //Calculating the total:
+        $total_food = $chapati.$beans.$chips.$rice.$pilau;
+        $total_drink = $pepsi.$mdew.$milk.$mango.$pineapple;
+        $total_price = $chapati_price + $beans_price + $chips_price + $rice_price + $pilau_price + $pepsi_price + $mdew_price + $milk_price + $mango_price + $pineapple_price;
+        
+
         // Insert form data into database
-        $sql = "INSERT INTO onlineorder (customer_name, phone_number, email, location, sublocation, food, food_quantity, drink, drink_quantity, total, location_description ) VALUES('$customer', '$phoneNumber', '$email', '$loc', '$subLocation', '$selected_food', '$amount_food', '$selected_drink', '$amount_drinks', '$total', '$loc_description');";
+        $sql = "INSERT INTO onlineorder (customer_name, phone_number, email, location, sublocation,food, drink, total, location_description ) VALUES('$customer', '$phoneNumber', '$email', '$loc', '$subLocation','$total_food', '$total_drink','$total_price', '$loc_description');";
         if (mysqli_query($conn, $sql)) {
             echo "<h3>New record created successfully</h3>";
             echo "Name: $customer"."<br>";
@@ -75,11 +123,11 @@ include_once("includes/db_inc.php");
             echo "Email: $email"."<br>";
             echo "Living at:<u>$loc</u>"."  Sub-location/Estate: <u>$subLocation</u>"."<br>"."<br>";
             echo "<b>Food and Drinks Chosen:</b>";
+            echo "Food(s): $total_food"."<br>";
+            echo "Drink(s): $total_drink"."<br>";
+            echo "Total in kshs = $total_price"."<br>";
 
-            echo "<div>Food: $selected_food"." ";
-            echo "Drink: $selected_drink"."<br>"."<br>";
-            echo "<b>Total Amount: &nbsp</b>"."<br>";
-            echo "ksh $total"."</div>";
+            
             echo "<b>Description of location:</b>"."<br>";
             echo "--->> $loc_description";
           } else {

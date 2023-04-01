@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Swahili Dishes Restaurant">
+    <meta name="keywords" content="Swahili dishes, Mombasa, local restaurant, order, food">
+    <meta name="author" content="Ashraf Mohammed Hassan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order food/drinks</title>
+    <link rel="stylesheet" href="css_files/style.css" type="text/css">
+    <link rel="stylesheet" href="css_files/style_order.css" type="text/css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <script>
+        document.getElementById("loc_desc").onclick = function(){
+        document.getElementById("location_description").innerHTML="Describe your location:";
+        
+    }
+    function proceed(){
+        let food1 = document.getElementById("chapati").checked;
+        let food2 = document.getElementById("beans").checked;
+        let food3 = document.getElementById("chips").checked;
+        let food4 = document.getElementById("rice").checked;
+        let food5 = document.getElementById("pilau").checked;
+        if(!food1 && !food2 && !food3 && !food4 && !food5){
+            alert("Please select a food to order before proceeding!");
+            return false;
+        }
+        else{
+            return confirm("Do you wish to submit the order?\nPress Ok to proceed and CANCEL to go back to the form below");
+        }
+    }
+    
+
+    
+    </script>
+    
+
+</head>
+<body>
+    
+    <div class="header">
+        
+        <h1>Swahili Dishes Restaurant</h1>
+        
+        <p>Life is dull without good food.</p>
+        
+    </div>
+    <div class="navbar">
+        <a href="about.html" class="left"><span>About us</span></a>
+        <a href="placeorder.html"><span class="order">Place Order</span></a>
+        <a href="menu.html"><span>Menu</span></a>
+        <a href="home.html"><span>Home</span></a>
+    </div>
+    <!--Form to place the Order-->
+    <br>
+    <br>
+    <br>
+    <div class="placeOrder">
+        <h4>Fill in the details below to place your order:</h4>
+        <br>
+        <br>
+        <form onsubmit="return proceed()" id = "myForm"  action="action.php"  method="post" >
+            <fieldset class="order" id="order_customerDetails">
+                <legend id="customerDetails"></legend>
+                <p><label for="name">Name:</label>
+                    <input type="text" maxlength="30" id="name"  name="name" pattern="[a-zA-Z ]+" required title="Name to have characters ONLY">
+                </p>
+                
+                <p><label for="phone">Phone number:</label>
+                    <input type="tel" minlength="10" maxlength="10" id="phone" name="phone" pattern="(01|07)[0-9]+" required title="Valid Kenyan phone number required">
+                </p>
+                
+                <p><label for="email">Email:</label>
+                    <input type="email"  id="email" name="email" placeholder="someone@gmail.com" required>
+                </p>
+                
+                <p><label for="location">Location:</label>
+                    <input type="text" maxlength="20" id="location" name="location" pattern="[a-zA-Z0-9 ]+" required title="Location name to have alphanumerics ONLY">
+                </p>
+                
+                <p><label for="address">Sub-location/Estate name:</label>
+                    <input type="text" maxlength="20" id="subLocation" name="subLocation" pattern="[a-zA-Z0-9 ]+" required title="Location name to have alphanumerics ONLY">
+                </p>
+
+            </fieldset>
+            <br>
+            <br>
+                <fieldset class="order" id="order_food_drinks">
+                    <legend id="food_drinks"></legend>
+                    <p>Select food:
+                        <span class="food_borders">
+                            <label for="chapati">Chapati:</label>
+                            <input type="checkbox" name="chapati" id="chapati" class="food" value=" Chapati">
+                            <input type="number" min="1" max="20" value="1" class="food_amount" name="chapati_amount">
+                        </span>
+
+                        <span class="food_borders">
+                            <label for="beans">Beans:</label>
+                            <input type="checkbox" name="beans" id="beans" class="food" value=" Beans">
+                            <input type="number" min="1" max="20" value="1" class="food_amount" name="beans_amount">
+                        </span>
+
+                        <span class="food_borders">
+                            <label for="chips">Biriani:</label>
+                            <input type="checkbox" name="chips" id="chips" class="food" value=" Biriani">
+                            <input type="number" min="1" max="20" value="1" class="food_amount" name="chips_amount">
+                        </span>
+
+                        <span class="food_borders">
+                            <label for="rice">Rice:</label>
+                            <input type="checkbox" name="rice" id="rice" class="food" value=" Rice">
+                            <input type="number" min="1" max="20" value="1" class="food_amount" name="rice_amount">
+                        </span>
+                        
+                        <span class="food_borders">
+                            <label for="pilau">Pilau:</label>
+                            <input type="checkbox" name="pilau" id="pilau" class="food" value=" Pilau">
+                            <input type="number" min="1" max="20" value="1" class="food_amount" name="pilau_amount">
+                        </span>
+                        <hr>
+                        
+                    </p>
+                    <p>
+                        Select Drinks:
+                        <span class="drink_borders">
+                            <label for="pepsi">Pepsi:</label>
+                            <input type="checkbox" name="pepsi" id="pepsi" value=" Pepsi">
+                            <input type="number" min="1" max="20" value="1" class="drink_amount" name="pepsi_amount">
+                        </span>
+
+                        <span class="drink_borders">
+                            <label for="mountainDew">Mountain Dew:</label>
+                            <input type="checkbox" name="mountaindew" id="mountainDew" value=" MountainDew">
+                            <input type="number" min="1" max="20" value="1" class="drink_amount" name="mountainDew_amount">
+                        </span>
+
+                        <span class="drink_borders">
+                            <label for="milkshake">Milkshake:</label>
+                            <input type="checkbox" name="milkshake" id="milkshake" value=" Milkshake">
+                            <input type="number" min="1" max="20" value="1" class="drink_amount" name="milkshake_amount">
+                        </span>
+
+                        <span class="drink_borders">
+                            <label for="mango">Mango Juice:</label>
+                            <input type="checkbox" name="mangojuice" id="mango" value=" Mangojuice">
+                            <input type="number" min="1" max="20" value="1" class="drink_amount" name="mango_amount">
+                        </span>
+                        <br>
+                        <br>
+
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        
+                        <span class="drink_borders">
+                            <label for="pineapple">Pineapple Juice:</label>
+                            <input type="checkbox" name="pineapplejuice" id="pineapple" value=" Pineapplejuice">
+                            <input type="number" min="1" max="20" value="1" class="drink_amount" name="pineapple_amount">
+                        </span>
+                        
+                        
+                    </p>
+                </fieldset>
+                <br>
+                <br>
+                <fieldset class="order" id="loc_desc">
+                    <legend id="location_description" style="color:rgb(18, 189, 18)"></legend>
+                    <br>
+                    <label for="loc_desc">Enter your your location's description<b>(Be descriptive and brief as you can can use either English or Swahili):</b></label>
+                    <br>
+                    <br>
+                    <!-- <textarea rows="10" cols="50" wrap="hard" id="loc_description" name="location_descr" placeholder="Enter your description here" required>
+
+                    </textarea> -->
+                    <input type="text" maxlength="200" id="location_descr" name="location_descr" required title="Enter brief description of your location">
+                </fieldset>
+                
+                <input type="reset" id="resetButton" name="reset" value="RESET">
+                
+                <input type="submit" id="submitButton" name="submit" value="Submit Order" onclick="validateForm()">
+
+        </form>
+
+
+    </div>
+    <script type="text/javascript" src="javascript_files/order.js">
+
+    </script>
+</body>
+</html>

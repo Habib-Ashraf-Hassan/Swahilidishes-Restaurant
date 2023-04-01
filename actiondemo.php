@@ -58,7 +58,7 @@
 
         //Checking if the food are checked or not:
         if(isset($_POST["chapati"])){
-            $chapati = $_POST["chapati"];
+            $chapati = $_POST["chapati"]."(".$_POST["chapati_amount"].")";
             $chapati_price = 30 * $_POST["chapati_amount"];
 
         }

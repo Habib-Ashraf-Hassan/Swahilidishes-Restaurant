@@ -1,0 +1,22 @@
+.food_amount, .drink_amount{
+    width: 70px;
+}
+.food_borders, .drink_borders{
+    border: 1px;
+    border-style: dashed;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.food_borders:hover{
+    background-color: rgba(238, 238, 103, 0.918);
+}
+.drink_borders:hover{
+    background-color: aquamarine;
+}
+hr{
+    border: 1px solid rgba(169, 169, 169, 0.616);
+}

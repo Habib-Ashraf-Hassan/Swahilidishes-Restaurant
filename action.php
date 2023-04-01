@@ -65,46 +65,46 @@ include_once("includes/db_inc.php");
 
         //Checking if the food are checked or not:
         if(isset($_POST["chapati"])){
-            $chapati = $_POST["chapati"];
+            $chapati = $_POST["chapati"]."(".$_POST["chapati_amount"].")";
             $chapati_price = 30 * $_POST["chapati_amount"];
     
         }
         if(isset($_POST["beans"])){
-            $beans = $_POST["beans"];
+            $beans = $_POST["beans"]."(".$_POST["beans_amount"].")";
             $beans_price = 60 * $_POST["beans_amount"];
         }
         if(isset($_POST["chips"])){
-            $chips = $_POST["chips"];
+            $chips = $_POST["chips"]."(".$_POST["chips_amount"].")";
             $chips_price = 80 * $_POST["chips_amount"];
         }
         if(isset($_POST["rice"])){
-            $rice = $_POST["rice"];
+            $rice = $_POST["rice"]."(".$_POST["rice_amount"].")";
             $rice_price = 100 * $_POST["rice_amount"];
         }
         if(isset($_POST["pilau"])){
-            $pilau = $_POST["pilau"];
+            $pilau = $_POST["pilau"]."(".$_POST["pilau_amount"].")";
             $pilau_price = 120 * $_POST["pilau_amount"];
         }
 
         //Checking if drink was checked or not:
         if(isset($_POST["pepsi"])){
-            $pepsi = $_POST["pepsi"];
+            $pepsi = $_POST["pepsi"]."(".$_POST["pepsi_amount"].")";
             $pepsi_price = 80 * $_POST["pepsi_amount"];
         }
         if(isset($_POST["mountaindew"])){
-            $mdew = $_POST["mountaindew"];
+            $mdew = $_POST["mountaindew"]."(".$_POST["mountainDew_amount"].")";
             $mdew_price = 80 * $_POST["mountainDew_amount"];
         }
         if(isset($_POST["milkshake"])){
-            $milk = $_POST["milkshake"];
+            $milk = $_POST["milkshake"]."(".$_POST["milkshake_amount"].")";
             $milk_price = 100 * $_POST["milkshake_amount"];
         }
         if(isset($_POST["mangojuice"])){
-            $mango = $_POST["mangojuice"];
+            $mango = $_POST["mangojuice"]."(".$_POST["mango_amount"].")";
             $mango_price = 80 * $_POST["mango_amount"];
         }
         if(isset($_POST["pineapplejuice"])){
-            $pineapple = $_POST["pineapplejuice"];
+            $pineapple = $_POST["pineapplejuice"]."(".$_POST["pineapple_amount"].")";
             $pineapple_price = 60 * $_POST["pineapple_amount"];
         }
         

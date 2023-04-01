@@ -75,7 +75,7 @@ include_once("includes/db_inc.php");
         }
         if(isset($_POST["chips"])){
             $chips = $_POST["chips"]."(".$_POST["chips_amount"].")";
-            $chips_price = 80 * $_POST["chips_amount"];
+            $chips_price = 250 * $_POST["chips_amount"];
         }
         if(isset($_POST["rice"])){
             $rice = $_POST["rice"]."(".$_POST["rice_amount"].")";

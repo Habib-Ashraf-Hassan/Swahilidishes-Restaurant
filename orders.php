@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 }
 
 // Retrieve the online orders from the database
-$sql = "SELECT order_id, customer_name, phone_number, email, location, sublocation, food, drink, total, time_of_order, location_description FROM onlineorder;";
+$sql = "SELECT order_id, customer_name, phone_number, email, location, sublocation, food, drink, total, time_of_order, location_description FROM onlineorder ORDER BY order_id DESC;";
 $result = $conn->query($sql);
 
 // // Display the orders in a table

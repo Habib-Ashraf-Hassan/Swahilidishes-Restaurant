@@ -25,5 +25,7 @@ Contains a brief description of what is Swahilidishes restauarant, its location,
 ## Login page(manager and delivery person ONLY)
 A page for only authorizes users to be able to view data in a table which stores the customers' order details
 
+Upon logging in there is a _log out button_ to log out that authorized user and head him/her back to the home page
+
 *NOTE:* _the images used in this site are not the actual images of the said restaurant, were just uploaded from the web ... this site built only for educational purposes ie It may NOT be an actual restaurant site existing_
 

@@ -1,5 +1,5 @@
 # Swahilidishes-Restaurant
-This is a website made for Kingfries restaurant; a restaurant said to be located near JKUAT university which offers takeaway and sit-in services.
+This is a website made for Swahilidishes restaurant; a restaurant said to be located near JKUAT university which offers takeaway and sit-in services.
 
 ## Swahilidishes-Restaurant website
 To enable anyone to order the food sold at Kingfries restaurant anywhere anytime
